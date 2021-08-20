@@ -97,7 +97,7 @@ async def yplay(_, message: Message):
                 type="query"
                 ysearch=query
         else:
-            d=await message.reply_text("You Didn't gave me anything to play. Send me a audio file or reply /play to an audio file.")
+            d=await message.reply_text("Yohohoho, You Didn't gave me anything to play. Send me a audio file or reply /play to an audio file.")
             await mp.delete(d)
             await mp.delete(message)
             return
@@ -105,13 +105,13 @@ async def yplay(_, message: Message):
     group_call = mp.group_call
     if type=="audio":
         if round(m_audio.audio.duration / 60) > DURATION_LIMIT:
-            d=await message.reply_text(f"❌ Audios longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided audio is {round(m_audio.audio.duration/60)} minute(s)")
+            d=await message.reply_text(f"Yohohoho, ❌ Audios longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided audio is {round(m_audio.audio.duration/60)} minute(s)")
             await mp.delete(d)
             await mp.delete(message)
             return
         if playlist and playlist[-1][2] \
                 == m_audio.audio.file_id:
-            d=await message.reply_text(f"{emoji.ROBOT} Already added in Playlist")
+            d=await message.reply_text(f"{emoji.ROBOT} Yohohoho, Already added in Playlist")
             await mp.delete(d)
             await mp.delete(message)
             return
@@ -223,7 +223,7 @@ async def yplay(_, message: Message):
             thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
             pass
         if int(duration) > DURATION_LIMIT:
-            k=await message.reply_text(f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)")
+            k=await message.reply_text(f"Yohohoho, ❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)")
             await mp.delete(k)
             await mp.delete(message)
             return
@@ -311,7 +311,7 @@ async def deezer(_, message):
         text = message.text.split(" ", 1)
         query = text[1]
     else:
-        k=await message.reply_text("You Didn't gave me anything to play use /splay <song name>")
+        k=await message.reply_text("Yohohohoh, You Didn't gave me anything to play use /splay <song name>")
         await mp.delete(k)
         await mp.delete(message)
         return
@@ -410,7 +410,7 @@ async def deezer(_, message):
 @Client.on_message(filters.command(["player", f"player@{U}"]) & (filters.chat(CHAT) | filters.private))
 async def player(_, m: Message):
     if not playlist:
-        k=await m.reply_text(f"{emoji.NO_ENTRY} No songs are playing")
+        k=await m.reply_text(f"{emoji.NO_ENTRY} Yohohoho, No songs are playing")
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -509,9 +509,9 @@ async def skip_track(_, m: Message):
                 if 2 <= i <= (len(playlist) - 1):
                     audio = f"{playlist[i][1]}"
                     playlist.pop(i)
-                    text.append(f"{emoji.WASTEBASKET} Succesfully Removed from Playlist- {i}. **{audio}**")
+                    text.append(f"{emoji.WASTEBASKET} Yohohoho, Succesfully Removed from Playlist- {i}. **{audio}**")
                 else:
-                    text.append(f"{emoji.CROSS_MARK} You Cant Skip First Two Songs- {i}")
+                    text.append(f"{emoji.CROSS_MARK} Yohohoho, You Cant Skip First Two Songs- {i}")
             k=await m.reply_text("\n".join(text))
             await mp.delete(k)
             if not playlist:
@@ -549,13 +549,13 @@ async def skip_track(_, m: Message):
 async def join_group_call(client, m: Message):
     group_call = mp.group_call
     if group_call.is_connected:
-        k=await m.reply_text(f"{emoji.ROBOT} Already joined voice chat")
+        k=await m.reply_text(f"{emoji.ROBOT} Yohohoho, Already joined voice chat")
         await mp.delete(k)
         await mp.delete(m)
         return
     await mp.start_call()
     chat = await client.get_chat(CHAT)
-    k=await m.reply_text(f"Succesfully Joined Voice Chat in {chat.title}")
+    k=await m.reply_text(f"Yohohoho, Succesfully Joined Voice Chat in {chat.title}")
     await mp.delete(k)
     await mp.delete(m)
 
@@ -761,7 +761,7 @@ async def show_playlist(_, m: Message):
 async def shuffle_play_list(client, m: Message):
     group_call = mp.group_call
     if not playlist:
-        k=await m.reply_text(f"{emoji.NO_ENTRY} No Playlist found, Maybe Radio is playing.")
+        k=await m.reply_text(f"{emoji.NO_ENTRY} Yohohoho, No Playlist found, Maybe Radio is playing.")
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -772,7 +772,7 @@ async def shuffle_play_list(client, m: Message):
             await mp.delete(k)
             await mp.delete(m)
         else:
-            k=await m.reply_text(f"You cant shuffle playlist with less than 3 songs.")
+            k=await m.reply_text(f"Yohohoho, You cant shuffle playlist with less than 3 songs.")
             await mp.delete(k)
             await mp.delete(m)
 
@@ -780,7 +780,7 @@ async def shuffle_play_list(client, m: Message):
 async def clear_play_list(client, m: Message):
     group_call = mp.group_call
     if not playlist:
-        k=await m.reply_text(f"{emoji.NO_ENTRY} No Playlist found, Maybe Radio is playing.")
+        k=await m.reply_text(f"{emoji.NO_ENTRY} Yohohoho, No Playlist found, Maybe Radio is playing.")
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -800,7 +800,7 @@ async def channel_play_list(client, m: Message):
     if not group_call.is_connected:
         await mp.start_call()
     if len(m.command) < 2:
-        k=await m.reply_text('You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1002525252525</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
+        k=await m.reply_text('Yohohoho, You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1002525252525</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -863,13 +863,13 @@ allcmd = ["play", "player", "splay", f"splay@{U}", f"play@{U}", f"player@{U}"] +
 async def not_chat(_, m: Message):
     buttons = [
         [
-            InlineKeyboardButton('⚡️Make Own Bot', url='https://heroku.com/deploy?template=https://github.com/subinps/MusicPlayer'),
-            InlineKeyboardButton('🧩 Source Code', url='https://github.com/subinps/MusicPlayer'),
+            InlineKeyboardButton('⚡️Make Own Bot', url='https://t.me/GodsValley/22448'),
+            InlineKeyboardButton('🧩 Source Code', url='https://t.me/GodsValley/21956'),
         ],
         [
-            InlineKeyboardButton('How to Make', url='https://youtu.be/iBK-5pP2eHM'),
+            InlineKeyboardButton('How to Make', url='https://t.me/GodsValley/22381'),
             InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help')       
         ]
         ]
-    k=await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/MusicPlayer) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+    k=await m.reply("<b>Yohohoho, You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/MusicPlayer) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
     await mp.delete(m)
