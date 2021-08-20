@@ -28,11 +28,11 @@ from config import Config
 
 HELP = """
 
-<b>Add the bot and User account in your Group with admin rights.
+<b>Yohohohoho, Add the bot and User account in your Group with admin rights.
 
 Start a VoiceChat
 
-Use /play <song name> or use /play as a reply to an audio file or youtube link.
+Yohohohoho, Use /play <song name> or use /play as a reply to an audio file or youtube link.
 
 You can also use /splay <song name> to play a song from JioSaavn or /cplay <channel username or channel id> to play music from a telegram channel.</b>
 
