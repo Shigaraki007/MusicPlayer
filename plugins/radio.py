@@ -54,12 +54,12 @@ async def radio(client, message: Message):
             await mp.delete(message)
             return
     if 1 in RADIO:
-        k=await message.reply_text("Kindly stop existing Radio Stream /stopradio")
+        k=await message.reply_text("Yohohoho, Kindly stop existing Radio Stream /stopradio")
         await mp.delete(k)
         await mp.delete(message)
         return
     await mp.start_radio()
-    k=await message.reply_text(f"Started Radio: <code>{STREAM}</code>")
+    k=await message.reply_text(f"Yohohoho, Started Radio: <code>{STREAM}</code>")
     await mp.delete(k)
     await mp.delete(message)
 
@@ -67,21 +67,21 @@ async def radio(client, message: Message):
 async def stop(_, message: Message):
     if Config.CPLAY:
         if 3 not in RADIO:
-            k=await message.reply_text("It seems channel play is enabled and playlist is empty.\nUse /radio to restart the playout.")
+            k=await message.reply_text("Yohohoho, It seems channel play is enabled and playlist is empty.\nUse /radio to restart the playout.")
             await mp.delete(k)
             await mp.delete(message)
             return
         else:
-            k=await message.reply_text("It seems channel play is enabled.\nUse /clearplaylist to clear the playlist.")
+            k=await message.reply_text("Yohohoho, It seems channel play is enabled.\nUse /clearplaylist to clear the playlist.")
             await mp.delete(k)
             await mp.delete(message)
             return 
     if 0 in RADIO:
-        k=await message.reply_text("Kindly start Radio First /radio")
+        k=await message.reply_text("Yohohoho, Kindly start Radio First /radio")
         await mp.delete(k)
         await mp.delete(message)
         return
     await mp.stop_radio()
-    k=await message.reply_text("Radio stream ended.")
+    k=await message.reply_text("Yohohoho, Radio stream ended.")
     await mp.delete(k)
     await mp.delete(message)
